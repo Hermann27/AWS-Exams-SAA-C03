@@ -1,1 +1,11 @@
-#!/usr/bin/ env bash
+#!/usr/bin/env bash
+echo "==== List Bucket Objects ===="
+# Check for bucket name is provide d
+if [ -z "$1" ]; then
+    echo "There needs to provide a bucket name eg. ./bucket my-bucket-name."
+    exit 1
+fi
+
+BUCKET_NAME=$1
+aws s3api list-objects-v2 \
+--bucket $BUCKET_NAME \
