@@ -1,9 +1,9 @@
 #!/usr/bin/ env bash
 
-# Check if the first argument is provided
+# Check for bucket name is provide d
 if [-z "$1"]; then
-    echo "No input variable provided."
+    echo "There needs to provide a bucket name eg. ./bucket my-bucket-name."
     exit 1
 fi
 
-aws s3api create-bucket --bucket $0
+aws s3api create-bucket --bucket $1
