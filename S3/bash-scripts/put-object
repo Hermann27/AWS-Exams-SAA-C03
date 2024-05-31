@@ -21,5 +21,3 @@ for((i=1; i<=$NUM_FILES; i++)); do
 done
 
 echo "------------------Done------------------"
-
-tree $OUTPUT_DIR
