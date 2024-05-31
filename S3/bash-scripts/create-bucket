@@ -1,7 +1,7 @@
-#!/usr/bin/ env bash
+#!/usr/bin/env bash
 
 # Check for bucket name is provide d
-if [-z "$1"]; then
+if [ -z "$1" ]; then
     echo "There needs to provide a bucket name eg. ./bucket my-bucket-name."
     exit 1
 fi
