@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Exit immediately if any command returns a non-zero status
+
+set -e
+
 #where we will store these files
 OUTPUT_DIR="/tmp/s3-bash-scripts"
 
@@ -20,4 +24,5 @@ for((i=1; i<=$NUM_FILES; i++)); do
     dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((RANDOM % 1024 + 1)) 2>/dev/null
 done
 
+tree $OUTPUT_DIR
 echo "------------------Done------------------"
