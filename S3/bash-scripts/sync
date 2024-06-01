@@ -12,7 +12,7 @@ fi
 
 # Check for filename prefix provide
 if [ -z "$2" ]; then
-    echo "There needs to provide a filename eg. ./file.txt."
+    echo "There needs to provide a filename eg. ./bucket my-bucket-name  my-filename."
     exit 1
 fi
 
@@ -23,7 +23,7 @@ FILENAME_PREFIX=$2
 OUTPUT_DIR="/tmp/s3-bash-scripts"
 
 # remove foler if already exist.
-rm -r $OUTPUT_DIR
+#rm -r $OUTPUT_DIR
 
 # let create output folder
 mkdir -p $OUTPUT_DIR
@@ -36,7 +36,7 @@ echo "------------------Creating $NUM_FILES random files..."
 
 for((i=1; i<=$NUM_FILES; i++)); do
     # Generate a random filename
-    FILENAME="$OUTPUT_DIR/$FILENAME_PREFIX_$i.txt"
+    FILENAME="$OUTPUT_DIR/${FILENAME_PREFIX}_$i.txt"
 
     # generate random data and write it to the file
     dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((RANDOM % 1024 + 1)) 2>/dev/null
